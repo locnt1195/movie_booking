@@ -3,11 +3,14 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'python -m pip install -r requirements.txt --user'
+        sh 'python3 -m venv env'
+        sh 'source ./env/bin/activate'
+        sh 'python -m pip install -r requirements.txt'
       }
     }
     stage('test') {
       steps {
+        sh 'source ./env/bin/activate'
         sh 'pyttest test_app.py'
       }   
     }
