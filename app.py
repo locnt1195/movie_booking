@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 API_KEYS = [
     {
-        'name': 'Momo',
+        'name': 'Momo00000000',
         'value': '2d4278333671cd4b6b06a74742ebbca1'
     }
 ]
