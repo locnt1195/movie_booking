@@ -7,7 +7,7 @@ app = Flask(__name__)
 API_KEYS = [
     {
         'name': 'Momo00000000',
-        'value': '2d4278333671cd4b6b06a74742ebbca12'
+        'value': '2d4278333671cd4b6b06a74742ebbca1211'
     }
 ]
 CINEMAS = [
@@ -190,7 +190,7 @@ def require_appkey(view_function):
     @wraps(view_function)
     def decorated_function(*args, **kwargs):
         api_key = request.headers.get('api_key', '')
-        valid_key = api_key and any(api_key in key['value'] for key in API_KEYS) or False
+        valid_key = api_key and any(api_key == key['value'] for key in API_KEYS) or False
         if valid_key:
             return view_function(*args, **kwargs)
         else:
